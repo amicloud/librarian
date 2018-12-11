@@ -10,12 +10,14 @@ class App extends Component {
         this.state = {
             gEmail: '',
             gPass: '',
-            library: []
+            library: [],
+            spotifyToken: ''
         };
         this.handleChangeGooglePass = this.handleChangeGooglePass.bind(this);
         this.handleChangeGoogleEmail = this.handleChangeGoogleEmail.bind(this);
         this.handleSubmitGoogle = this.handleSubmitGoogle.bind(this);
         this.getAllTracks = this.getAllTracks.bind(this);
+        this.spotifyLogin = this.spotifyLogin.bind(this);
     }
 
     handleChangeGoogleEmail(event){
@@ -39,7 +41,7 @@ class App extends Component {
             pm.init({androidId: info.androidId, masterToken: info.masterToken}, function (err) {
                 if (err) console.error(err);
                 console.log("Initialized music service");
-                pm.getAllTracks({limit: 100000}, function (err, library) {
+                pm.getAllTracks({limit: 25000}, function (err, library) {
                     console.log("Got all tracks");
                     that.setState({library: library.data.items})
                 });
@@ -53,6 +55,26 @@ class App extends Component {
         this.getAllTracks(this.state.gEmail, this.state.gPass);
     }
 
+    spotifyLogin() {
+        let authorizationUrl = "https://accounts.spotify.com/authorize?" +
+            "client_id=6b16fe550ec0481db8e438eea7342c04" +
+            "&redirect_uri=http%3A%2F%2Flocalhost%3A3000%2F" +
+            "&scope=user-library-modify" +
+            "&response_type=token" +
+            "&show_dialog=true";
+        window.location.replace(authorizationUrl);
+    }
+
+    componentDidMount() {
+        this.token = window.location.hash.substr(1).split('&')[0].split("=")[1]
+
+        if (this.token) {
+            // window.opener.spotifyCallback(this.token);
+            this.setState({spotifyToken: this.token});
+        }
+
+    }
+
     render() {
         return (
             <div className="App">
@@ -64,6 +86,12 @@ class App extends Component {
                     <div className="row">
                         <h1 className="center">Librarian</h1>
                     </div>
+
+                    <div className="row">
+                        <p>First, log in to Spotify.</p>
+                        <button className='button-spotify-login' onClick={this.spotifyLogin}>Login to Spotify</button>
+                    </div>
+
                     <div className="row">
                         <p>In the fields below, input the login information for the Google Account you wish to retrieve
                             the library
@@ -79,12 +107,15 @@ class App extends Component {
                         </form>
                     </div>
                     <div className="row">
-                        <p>{this.state.library}</p>
+                        <p className='library'>{this.state.library}</p>
                     </div>
+
                 </div>
             </div>
         );
     }
 }
+
+
 
 export default App;
