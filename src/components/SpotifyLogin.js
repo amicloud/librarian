@@ -28,8 +28,8 @@ class SpotifyLogin extends Component {
     render() {
         return (
             <div className="row">
-                <p>First, log in to Spotify.</p>
-                <button className='button-spotify-login' onClick={this.spotifyLogin}>Login to Spotify</button>
+                <p>Then log in to Spotify.</p>
+                <button id='spotifyLogin' className='button-spotify-login' onClick={this.spotifyLogin}>Login to Spotify</button>
             </div>
         );
     }

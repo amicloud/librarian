@@ -22,8 +22,9 @@ class CSVImporter extends Component {
     render() {
         return (
             <div className="csv-importer">
+                <p>Then load your .csv file.</p>
                 <ReactFileReader handleFiles={this.importCSV} fileTypes={".csv"} base64={true}>
-                    <button className='btn'>Select .csv file</button>
+                    <button id='csvImport' className='btn'>Select .csv file</button>
                 </ReactFileReader>
             </div>
         );

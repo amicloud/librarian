@@ -1,4 +1,5 @@
 .App {
+
   text-align: center;
 }
 
@@ -32,7 +33,7 @@
 }
 
 .container {
-  width: 80%;
+  width: 50%;
   margin: 0 auto;
 }
 
@@ -128,4 +129,22 @@ li {
     scroll-behavior: smooth;
     overflow-y: scroll;
     margin-bottom: 10em;
+    margin-top: 1em;
+
+}
+
+.download > button {
+    font-size: 1.5em;
+    padding: .25em;
+    margin: .25em;
+    background-color: #fff;
+    border: black solid 1px;
+}
+
+.download > button > a {
+    color: #222;
+}
+
+header > h1 {
+    color: #eee;
 }

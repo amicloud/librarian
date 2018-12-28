@@ -4,6 +4,7 @@ import Bottleneck from "bottleneck";
 
 class SpotifyUploader extends Component {
 
+
     constructor(props) {
         super(props);
         this.state = {
@@ -11,7 +12,9 @@ class SpotifyUploader extends Component {
             albums: [],
             songs: [],
             list: [],
-            statuses: {}
+            statuses: {},
+            max: 0,
+            done: 0
         };
 
         this.onSubmit = this.onSubmit.bind(this);
@@ -51,7 +54,7 @@ class SpotifyUploader extends Component {
             let record = records.filter(r => r.albumId === id)[0];
             albums.push({artist: record.artist, album: record.album, id: record.albumId});
         });
-        this.setState({albums: albums, list: albums});
+        this.setState({albums: albums, list: albums, max: albums.length});
     }
 
     getSongs() {
@@ -60,7 +63,7 @@ class SpotifyUploader extends Component {
         records.forEach((record) => {
             songs.push({artist: record.artist, album: record.album, id: record.id, title: record.title});
         });
-        this.setState({songs: songs, list: songs});
+        this.setState({songs: songs, list: songs, max: songs.length});
     }
 
     componentDidUpdate(prevProps, prevState, snapshot) {
@@ -72,8 +75,8 @@ class SpotifyUploader extends Component {
 
     uploadAlbums() {
         const limiter = new Bottleneck({
-            maxConcurrent: 3,
-            minTime: 50
+            maxConcurrent: 2,
+            minTime: 175
         });
 
         const s = new Spotify();
@@ -122,12 +125,14 @@ class SpotifyUploader extends Component {
 
     uploadSongs() {
         const limiter = new Bottleneck({
-            maxConcurrent: 40,
-            minTime: 15
+            maxConcurrent: 2,
+            minTime: 175
         });
+
 
         const s = new Spotify();
         s.setAccessToken(this.props.spotifyToken);
+
 
         for (let song of this.state.songs) {
             limiter.schedule(() => s.searchTracks(song.title + " album:" + song.album + " artist:" + song.artist))
@@ -197,7 +202,7 @@ class SpotifyUploader extends Component {
                         </label>
                     </div>
                     <p></p>
-                    <input className='btn' type='submit' value={'Upload by ' + this.state.uploadType.slice(0, -1)}/>
+                    <input id='spotifyUpload' className='btn' type='submit' value={'Upload by ' + this.state.uploadType.slice(0, -1)}/>
                 </form>
                 <div className={'list'}>
                     {this.state.list.map(record => {
