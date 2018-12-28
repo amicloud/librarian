@@ -3,18 +3,14 @@ import React, {Component} from 'react';
 class SpotifyLogin extends Component {
     constructor(props) {
         super(props);
-        this.state = {
-            spotifyToken: ''
-        };
         this.spotifyLogin = this.spotifyLogin.bind(this);
     }
 
     componentDidMount() {
         this.token = window.location.hash.substr(1).split('&')[0].split("=")[1];
-
         if (this.token) {
             // window.opener.spotifyCallback(this.token);
-            this.setState({spotifyToken: this.token});
+            this.props.onLogin(this.token);
         }
 
     }

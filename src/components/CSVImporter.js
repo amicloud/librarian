@@ -11,7 +11,7 @@ class CSVImporter extends Component {
     }
 
     importCSV = (files) => {
-        const csv = Base64.decode(files.base64.substr(21)); // Remove encoding info from start of string
+        const csv = Base64.decode(files.base64.substr(21)); // Remove encoding info
         const records = parse(csv, {
             columns: true,
             skip_empty_lines: true
@@ -23,7 +23,7 @@ class CSVImporter extends Component {
         return (
             <div className="csv-importer">
                 <ReactFileReader handleFiles={this.importCSV} fileTypes={".csv"} base64={true}>
-                    <button className='btn'>Upload</button>
+                    <button className='btn'>Select .csv file</button>
                 </ReactFileReader>
             </div>
         );

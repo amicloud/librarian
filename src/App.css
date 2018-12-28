@@ -73,3 +73,59 @@
     background-color: #1ed760; /* Green */
 
 }
+
+.hidden {
+    visibility: hidden;
+}
+
+.fail {
+    background-color: #ee2211;
+}
+
+.success {
+    background-color: #22ee32;
+}
+
+.ok_search {
+    background-color: lightgreen;
+}
+
+.ok_search::after {
+    content: " [Found]"
+}
+
+.ok_save {
+    background-color: forestgreen;
+}
+
+.ok_save::after {
+    content: " [Saved to library]";
+}
+
+.fail_search {
+    background-color: darkorange !important;
+}
+
+.fail_search::after {
+    content: " [Not found]";
+}
+
+.fail_save {
+    background-color: red !important;
+}
+
+.fail_save::after {
+    content: " [Save failed]";
+}
+
+li {
+    width: fit-content;
+    margin: 0 auto;
+}
+
+.list {
+    max-height: 40em;
+    scroll-behavior: smooth;
+    overflow-y: scroll;
+    margin-bottom: 10em;
+}
