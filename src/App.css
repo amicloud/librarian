@@ -148,3 +148,7 @@ li {
 header > h1 {
     color: #eee;
 }
+
+.status {
+    margin-top : 1em;
+}

@@ -11,7 +11,12 @@ class CSVImporter extends Component {
     }
 
     importCSV = (files) => {
-        const csv = Base64.decode(files.base64.substr(21)); // Remove encoding info
+        let data = files.base64;
+        // Remove encoding info if present for some reason linux wtf
+        if(data.substr(0, 21).indexOf("data:text/csv;base64") !== -1){
+            data = data.substr(21)
+        }
+        const csv = Base64.decode(data);
         const records = parse(csv, {
             columns: true,
             skip_empty_lines: true

@@ -4,7 +4,6 @@ import Bottleneck from "bottleneck";
 
 class SpotifyUploader extends Component {
 
-
     constructor(props) {
         super(props);
         this.state = {
@@ -13,8 +12,10 @@ class SpotifyUploader extends Component {
             songs: [],
             list: [],
             statuses: {},
-            max: 0,
-            done: 0
+            found: 0,
+            saved: 0,
+            fail_search: 0,
+            fail_save: 0
         };
 
         this.onSubmit = this.onSubmit.bind(this);
@@ -89,35 +90,40 @@ class SpotifyUploader extends Component {
                        if (data.albums.items.length) {
                            let statuses = this.state.statuses;
                            statuses[album.id] = "ok_search";
-                           this.setState({statuses: statuses});
+                           let found = this.state.found + 1;
+                           this.setState({statuses: statuses, found: found});
                            let spotifyId = data.albums.items[0].id;
                            console.log(`found ${spotifyId}`);
                            limiter.schedule(() => s.addToMySavedAlbums([spotifyId], null))
                                   .then(() => {
                                           let statuses = this.state.statuses;
                                           statuses[album.id] = "ok_save";
-                                          this.setState({statuses: statuses});
+                                          let saved = this.state.saved + 1;
+                                          this.setState({statuses: statuses, saved: saved});
                                           console.log(`saved an album`);
                                       }, error => {
                                           console.log(error);
                                           if (error.status === 429) console.error("Rate limited!");
                                           let statuses = this.state.statuses;
                                           statuses[album.id] = "fail_save";
-                                          this.setState({statuses: statuses});
+                                          let failed = this.state.fail_save + 1;
+                                          this.setState({statuses: statuses, fail_save: failed});
 
                                       }
                                   );
                        } else {
                            let statuses = this.state.statuses;
                            statuses[album.id] = "fail_search";
-                           this.setState({statuses: statuses});
+                           let failed = this.state.fail_search + 1;
+                           this.setState({statuses: statuses, fail_search: failed});
                        }
                    }, error => {
                        console.log(error);
                        if (error.status === 429) console.error("Rate limited!");
                        let statuses = this.state.statuses;
                        statuses[album.id] = "fail_search";
-                       this.setState({statuses: statuses});
+                       let failed = this.state.fail_search + 1;
+                       this.setState({statuses: statuses, fail_search: failed});
                    });
 
         }
@@ -129,10 +135,8 @@ class SpotifyUploader extends Component {
             minTime: 175
         });
 
-
         const s = new Spotify();
         s.setAccessToken(this.props.spotifyToken);
-
 
         for (let song of this.state.songs) {
             limiter.schedule(() => s.searchTracks(song.title + " album:" + song.album + " artist:" + song.artist))
@@ -141,35 +145,40 @@ class SpotifyUploader extends Component {
                        if (data.tracks.items.length) {
                            let statuses = this.state.statuses;
                            statuses[song.id] = "ok_search";
-                           this.setState({statuses: statuses});
+                           let found = this.state.found + 1;
+                           this.setState({statuses: statuses, found: found});
                            let spotifyId = data.id;
                            console.log(`found ${spotifyId}`);
                            limiter.schedule(() => s.addToMySavedTracks([spotifyId], null))
                                   .then(() => {
                                           let statuses = this.state.statuses;
                                           statuses[song.id] = "ok_save";
-                                          this.setState({statuses: statuses});
+                                          let saved = this.state.saved + 1;
+                                          this.setState({statuses: statuses, saved: saved});
                                           console.log(`saved a song`);
                                       }, error => {
                                           console.log(error);
                                           if (error.status === 429) console.error("Rate limited!");
                                           let statuses = this.state.statuses;
                                           statuses[song.id] = "fail_save";
-                                          this.setState({statuses: statuses});
+                                          let failed = this.state.fail_save + 1;
+                                          this.setState({statuses: statuses, fail_save: failed});
                                           console.log(`failed to save a song`);
                                       }
                                   );
                        } else {
                            let statuses = this.state.statuses;
                            statuses[song.id] = "fail_search";
-                           this.setState({statuses: statuses});
+                           let failed = this.state.fail_search + 1;
+                           this.setState({statuses: statuses, fail_search: failed});
                        }
                    }, error => {
                        console.log(error);
                        if (error.status === 429) console.error("Rate limited!");
                        let statuses = this.state.statuses;
                        statuses[song.id] = "fail_search";
-                       this.setState({statuses: statuses});
+                       let failed = this.state.fail_search + 1;
+                       this.setState({statuses: statuses, fail_search: failed});
                        console.log(`failed to find a song`);
 
                    });
@@ -202,8 +211,12 @@ class SpotifyUploader extends Component {
                         </label>
                     </div>
                     <p></p>
-                    <input id='spotifyUpload' className='btn' type='submit' value={'Upload by ' + this.state.uploadType.slice(0, -1)}/>
+                    <input id='spotifyUpload' className='btn' type='submit'
+                           value={'Upload by ' + this.state.uploadType.slice(0, -1)}/>
                 </form>
+                <div className={'status'}>Unique {this.state.uploadType}: {this.state.list.length}</div>
+                <div className={'status'}>Found: {this.state.found} -- Saved: {this.state.saved}</div>
+                <div className={'errors'}>Search failures: {this.state.fail_search} -- Save failures: {this.state.fail_save}</div>
                 <div className={'list'}>
                     {this.state.list.map(record => {
                         let status = this.state.statuses[record.id];
