@@ -13,6 +13,7 @@
     "react-dom": "^16.6.3",
     "react-file-picker": "^0.0.5",
     "react-file-reader": "^1.1.4",
+    "react-https-redirect": "^1.0.11",
     "react-scripts": "2.1.1",
     "serve": "^10.1.1",
     "spotify-web-api-js": "^1.1.1"
