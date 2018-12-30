@@ -6,8 +6,6 @@
     "bottleneck": "^2.14.1",
     "csv-parse": "^4.2.0",
     "js-base64": "^2.5.0",
-    "playmusic": "^2.3.0",
-    "playmusic-librarian": "^1.0.0",
     "react": "^16.6.3",
     "react-csv-reader": "^1.1.0",
     "react-dom": "^16.6.3",
@@ -19,7 +17,7 @@
     "spotify-web-api-js": "^1.1.1"
   },
   "scripts": {
-    "dev": "react-scripts start",
+    "dev": "PORT=3001 react-scripts start",
     "start": "serve -s build",
     "build": "react-scripts build",
     "test": "react-scripts test",

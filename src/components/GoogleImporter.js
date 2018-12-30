@@ -1,5 +1,4 @@
 import React, {Component} from "react";
-import PlayMusic from "playmusic-librarian";
 import {Base64} from "js-base64";
 
 class GoogleImporter extends Component {
@@ -33,11 +32,25 @@ class GoogleImporter extends Component {
 
     getLibraryFromServer(email, password) {
         this.setState({status: "Fetching library data..."});
-        let uri = `https://librarian-api.herokuapp.com/library?username=${encodeURIComponent(email)}&password=${encodeURIComponent(password)}`;
-        fetch(uri)
+        let uri = `https://librarian-api.herokuapp.com/library`;
+        // uri = "localhost:3000/library";
+        let body = {
+            "email": email,
+            "password": password
+        };
+        fetch(uri, {
+            method: "POST",
+            body: JSON.stringify(body),
+            headers: {
+                'Content-Type': 'application/json'
+            }
+        })
             .then((response) => {
                 if (response.ok) {
                     return response.json();
+                } else {
+                    console.log(`Response: ${response.status}`);
+                    this.setState({status: "Error retrieving library."});
                 }
             })
             .then((json) => {
@@ -60,16 +73,17 @@ class GoogleImporter extends Component {
         if (!this.props.render) {
             return null;
         }
-        if(this.state.done){
-            return(
+        if (this.state.done) {
+            return (
                 <div className='row'>
                     {this.state.status}
                 </div>
-            )
+            );
         }
         return (
             <div className="row">
-                <p>Input your Google account information below. The Google account <strong>MUST</strong> have the <a href='https://myaccount.google.com/lesssecureapps'>"Allow less secure apps"</a> setting
+                <p>Input your Google account information below. The Google account <strong>MUST</strong> have the <a
+                    href='https://myaccount.google.com/lesssecureapps'>"Allow less secure apps"</a> setting
                     set to "ON".
                 </p>
                 <form onSubmit={this.handleSubmit}>

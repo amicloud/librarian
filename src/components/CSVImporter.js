@@ -5,11 +5,6 @@ import { Base64 } from 'js-base64';
 
 class CSVImporter extends Component {
 
-    constructor(props) {
-        super(props);
-
-    }
-
     importCSV = (files) => {
         let data = files.base64;
         // Remove encoding info if present for some reason linux wtf
