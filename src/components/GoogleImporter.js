@@ -1,5 +1,6 @@
 import React, {Component} from "react";
-import PlayMusic from "playmusic";
+import PlayMusic from "playmusic-librarian";
+import {Base64} from "js-base64";
 
 class GoogleImporter extends Component {
 
@@ -9,10 +10,10 @@ class GoogleImporter extends Component {
             email: '',
             password: ''
         };
-        this.getLibrary = this.getLibrary.bind(this);
         this.handlePasswordChange = this.handlePasswordChange.bind(this);
         this.handleEmailChange = this.handleEmailChange.bind(this);
         this.handleSubmit = this.handleSubmit.bind(this);
+        this.getLibraryFromServer = this.getLibraryFromServer.bind(this);
     }
 
     handleEmailChange(event) {
@@ -25,42 +26,29 @@ class GoogleImporter extends Component {
 
     handleSubmit(event) {
         event.preventDefault();
-        this.getLibrary(this.state.email, this.state.password);
+        this.getLibraryFromServer(this.state.email, this.state.password);
     }
 
-    getLibrary(username, password) {
-        console.log("Getting tracks");
-        let that = this;
-        let pm = new PlayMusic();
-        console.log("Attempting to log in...");
-        pm.login({email: username, password: password}, function (err, info) {
-            if (err) {
-                console.error(err);
-                return;
-            }
-            console.log("Logged in successfully!\n" +
-                "Initializing client...");
-            pm.init({androidId: info.androidId, masterToken: info.masterToken}, function (err) {
-                if (err) {
-                    console.error(err);
-                    return;
+    getLibraryFromServer(email, password) {
+        let uri = `https://librarian-api.herokuapp.com/library?username=${encodeURIComponent(email)}&password=${encodeURIComponent(password)}`;
+        fetch(uri)
+            .then((response) => {
+                if (response.ok) {
+                    return response.json();
                 }
-                console.log("Client initialized!\n" +
-                    "Attempting to fetch up to 25,000 tracks...");
-                pm.getAllTracks({limit: 25000}, function (err, library) {
-                    if (err) {
-                        console.error(err);
-                    }
-                    if (library) {
-                        console.log("Library retrieved! Found " + library.length + " songs.");
-                        that.setState({library: library.data.items});
-                        this.props.callback(library);
-                    } else {
-                        console.log("No songs found. Huh? ¯\\_(ツ)_/¯");
-                    }
-                });
+            })
+            .then((json) => {
+                if(json){
+                let decoded = Base64.decode(json["library"]);
+                    let lib = JSON.parse(decoded);
+                    this.props.callback(lib.data.items);
+                } else {
+                    alert("Error fetching library information. Please check your credentials. If your credentials are " +
+                        "correct, Google may have blocked " +
+                        "this login attempt, check your email for an alert from Google and approve the login. Or maybe " +
+                        "you need to enable 'Allow Less Secure Apps'!")
+                }
             });
-        });
     }
 
     render() {

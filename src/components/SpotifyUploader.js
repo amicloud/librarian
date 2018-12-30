@@ -199,20 +199,20 @@ class SpotifyUploader extends Component {
                 <form onSubmit={this.onSubmit}>
                     <p>Upload tracks by:</p>
                     <div className={'radio'}>
-                        <label>Albums: Save entire albums to Spotify library
+                        <label>Albums
                             <input type='radio' onChange={this.onUploadTypeChanged} value='albums'
                                    checked={this.state.uploadType === "albums"}/>
                         </label>
                     </div>
                     <div className={'radio'}>
-                        <label>Songs: Save individual songs to Spotify library
+                        <label>Songs
                             <input type='radio' onChange={this.onUploadTypeChanged} value='songs'
                                    checked={this.state.uploadType === "songs"}/>
                         </label>
                     </div>
                     <p></p>
                     <input id='spotifyUpload' className='btn' type='submit'
-                           value={'Upload by ' + this.state.uploadType.slice(0, -1)}/>
+                           value={'Save ' + this.state.uploadType + ' to library'}/>
                 </form>
                 <div className={'status'}>Unique {this.state.uploadType}: {this.state.list.length}</div>
                 <div className={'status'}>Found: {this.state.found} -- Saved: {this.state.saved}</div>

@@ -6940,6 +6940,15 @@ pkg-up@2.0.0:
   dependencies:
     find-up "^2.1.0"
 
+playmusic-librarian@^1.0.0:
+  version "1.0.0"
+  resolved "https://registry.yarnpkg.com/playmusic-librarian/-/playmusic-librarian-1.0.0.tgz#6c5eea42ebfaf39ea5bb0769cfe7585be9c49af6"
+  integrity sha512-tmELMZrTlL7bHQF+QV9vNbAyLb4xStsgJMlNkd/czWs9hndmDLDEAir/gGLcRQpd2pvMV5hT6gyy/UKUwPYZEQ==
+  dependencies:
+    crypto-js ">= 3.1"
+    node-uuid "~1.4.1"
+    rsa-pem-from-mod-exp "^0.8.4"
+
 playmusic@^2.3.0:
   version "2.3.0"
   resolved "https://registry.yarnpkg.com/playmusic/-/playmusic-2.3.0.tgz#15ef53093f0b409b29d0acd0835f7b5088366ca6"

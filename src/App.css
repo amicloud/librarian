@@ -152,3 +152,7 @@ header > h1 {
 .status {
     margin-top : 1em;
 }
+
+form > p {
+    margin: .25em 0;
+}

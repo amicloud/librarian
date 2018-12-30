@@ -3,6 +3,7 @@ import SpotifyLogin from "./SpotifyLogin";
 import CSVImporter from "./CSVImporter";
 import SpotifyUploader from "./SpotifyUploader";
 import Downloader from "./Downloader";
+import GoogleImporter from "./GoogleImporter";
 
 class Librarian extends Component {
 
@@ -28,17 +29,20 @@ class Librarian extends Component {
         return (
             <div className="container">
 
-                <Downloader/>
-
                 <SpotifyLogin onLogin={this.onSpotifyLogin}/>
+                <GoogleImporter callback={this.onLibraryImported}/>
 
-                {/*<GoogleImporter callback={this.onLibraryImported}/>*/}
+                {/*<Downloader/>*/}
+                {/*<CSVImporter callback={this.onLibraryImported}/>*/}
 
-                <CSVImporter callback={this.onLibraryImported}/>
-
-                <p>If the data below looks correct once the .csv is loaded, you can save either the entire albums to
-                your Spotify library, or the individual songs. Uploading a few hundred albums is quick, but several
-                thousands of songs will take a while...</p>
+                <p>
+                    Once the library information is retrieved it will appear below.
+                </p>
+                <p>
+                    You can save either the entire albums to
+                    your Spotify library, or the individual songs. Uploading a few hundred albums is quick, but several
+                    thousands of songs will take a while...
+                </p>
 
                 <SpotifyUploader spotifyToken={this.state.spotifyToken} library={this.state.library}/>
 
