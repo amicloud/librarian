@@ -43,20 +43,23 @@ class GoogleImporter extends Component {
                     let lib = JSON.parse(decoded);
                     this.props.callback(lib.data.items);
                 } else {
-                    alert("Error fetching library information. Please check your credentials. If your credentials are " +
+                    alert("Error fetching library information.\n\nPlease check your credentials.\n\nIf your credentials are " +
                         "correct, Google may have blocked " +
-                        "this login attempt, check your email for an alert from Google and approve the login. Or maybe " +
+                        "this login attempt, check your email for an alert from Google and approve the login. \n\nOr maybe " +
                         "you need to enable 'Allow Less Secure Apps'!")
                 }
             });
     }
 
     render() {
+        if(!this.props.render){
+            return null;
+        }
         return (
             <div className="row">
                 <p>In the fields below, input the login information for the Google Account you wish to retrieve
                     the library
-                    information for. The Google account also needs to have the "Allow less secure apps" setting
+                    information for. The Google account <strong>MUST</strong> have the "Allow less secure apps" setting
                     set to "ON".
                 </p>
                 <form onSubmit={this.handleSubmit}>
@@ -68,6 +71,9 @@ class GoogleImporter extends Component {
                            onChange={this.handlePasswordChange}/>
                     <input type='submit' value='Get Library Data'/>
                 </form>
+                <p>
+                    Once the library information is retrieved it will appear below.
+                </p>
             </div>
         );
     }

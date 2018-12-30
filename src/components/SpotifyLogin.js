@@ -18,8 +18,8 @@ class SpotifyLogin extends Component {
     spotifyLogin() {
         let authorizationUrl = "https://accounts.spotify.com/authorize?" +
             "client_id=6b16fe550ec0481db8e438eea7342c04" +
-            "&redirect_uri=http%3A%2F%2Fwww.gpmlibrarian.com%2F" +
-            // "&redirect_uri=http%3A%2F%2Flocalhost%3A3000%2F" +
+            // "&redirect_uri=http%3A%2F%2Fwww.gpmlibrarian.com%2F" +
+            "&redirect_uri=http%3A%2F%2Flocalhost%3A3000%2F" +
             "&scope=user-library-modify" +
             "&response_type=token" +
             "&show_dialog=true";
@@ -27,12 +27,22 @@ class SpotifyLogin extends Component {
     }
 
     render() {
-        return (
-            <div className="row">
-                <p>Then log in to Spotify.</p>
-                <button id='spotifyLogin' className='button-spotify-login' onClick={this.spotifyLogin}>Login to Spotify</button>
-            </div>
-        );
+        if (this.props.loggedIn) {
+            return (
+                <div className="row">
+                    <p>Great, we are logged in to Spotify!</p>
+                </div>
+            );
+        } else {
+            return (
+                <div className="row">
+                    <p>First, grant Librarian access to your Spotify Library.</p>
+                    <button id='spotifyLogin' className='button-spotify-login' onClick={this.spotifyLogin}>Login to
+                        Spotify
+                    </button>
+                </div>
+            );
+        }
     }
 }
 

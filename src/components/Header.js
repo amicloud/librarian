@@ -11,7 +11,7 @@ class Header extends Component {
     render() {
         return (
             <header className="App-header">
-                <h1 className="center">Librarian</h1>
+                <h1 className="center"><a href={"/"}>Librarian</a></h1>
             </header>
         );
     }

@@ -29,22 +29,18 @@ class Librarian extends Component {
         return (
             <div className="container">
 
-                <SpotifyLogin onLogin={this.onSpotifyLogin}/>
-                <GoogleImporter callback={this.onLibraryImported}/>
+                <SpotifyLogin
+                    onLogin={this.onSpotifyLogin} loggedIn={this.state.spotifyToken}/>
+
+
+                <GoogleImporter
+                    callback={this.onLibraryImported} render={this.state.spotifyToken}/>
 
                 {/*<Downloader/>*/}
                 {/*<CSVImporter callback={this.onLibraryImported}/>*/}
 
-                <p>
-                    Once the library information is retrieved it will appear below.
-                </p>
-                <p>
-                    You can save either the entire albums to
-                    your Spotify library, or the individual songs. Uploading a few hundred albums is quick, but several
-                    thousands of songs will take a while...
-                </p>
-
-                <SpotifyUploader spotifyToken={this.state.spotifyToken} library={this.state.library}/>
+                <SpotifyUploader
+                    spotifyToken={this.state.spotifyToken} library={this.state.library}/>
 
             </div>
         );

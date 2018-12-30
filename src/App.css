@@ -156,3 +156,11 @@ header > h1 {
 form > p {
     margin: .25em 0;
 }
+
+form > input {
+    margin: .25em;
+}
+
+h1 > a {
+    color: inherit;
+}

@@ -194,44 +194,54 @@ class SpotifyUploader extends Component {
     }
 
     render() {
-        return (
-            <div>
-                <form onSubmit={this.onSubmit}>
-                    <p>Upload tracks by:</p>
-                    <div className={'radio'}>
-                        <label>Albums
-                            <input type='radio' onChange={this.onUploadTypeChanged} value='albums'
-                                   checked={this.state.uploadType === "albums"}/>
-                        </label>
+        if (this.state.list.length) {
+            return (
+                <div>
+                    <p>
+                        You can save either the entire albums to
+                        your Spotify library, or the individual songs. Uploading a few hundred albums is quick, but
+                        several
+                        thousands of songs will take a while...
+                    </p>
+                    <form onSubmit={this.onSubmit}>
+                        <p>Upload tracks by:</p>
+                        <div className={'radio'}>
+                            <label>Albums
+                                <input type='radio' onChange={this.onUploadTypeChanged} value='albums'
+                                       checked={this.state.uploadType === "albums"}/>
+                            </label>
+                        </div>
+                        <div className={'radio'}>
+                            <label>Songs
+                                <input type='radio' onChange={this.onUploadTypeChanged} value='songs'
+                                       checked={this.state.uploadType === "songs"}/>
+                            </label>
+                        </div>
+                        <p></p>
+                        <input id='spotifyUpload' className='btn' type='submit'
+                               value={'Save ' + this.state.uploadType + ' to library'}/>
+                    </form>
+                    <div className={'status'}>Unique {this.state.uploadType}: {this.state.list.length}</div>
+                    <div className={'status'}>Found: {this.state.found} -- Saved: {this.state.saved}</div>
+                    <div className={'errors'}>Search failures: {this.state.fail_search} -- Save
+                        failures: {this.state.fail_save}</div>
+                    <div className={'list'}>
+                        {this.state.list.map(record => {
+                            let status = this.state.statuses[record.id];
+                            return (
+                                <div id={record.id} key={record.id}
+                                     className={'list-record' + (status ? " " + status : "")}>
+                                    {record.title ? record.title + " - " : ""}{record.album} - {record.artist}
+                                </div>
+                            );
+                        })}
                     </div>
-                    <div className={'radio'}>
-                        <label>Songs
-                            <input type='radio' onChange={this.onUploadTypeChanged} value='songs'
-                                   checked={this.state.uploadType === "songs"}/>
-                        </label>
-                    </div>
-                    <p></p>
-                    <input id='spotifyUpload' className='btn' type='submit'
-                           value={'Save ' + this.state.uploadType + ' to library'}/>
-                </form>
-                <div className={'status'}>Unique {this.state.uploadType}: {this.state.list.length}</div>
-                <div className={'status'}>Found: {this.state.found} -- Saved: {this.state.saved}</div>
-                <div className={'errors'}>Search failures: {this.state.fail_search} -- Save failures: {this.state.fail_save}</div>
-                <div className={'list'}>
-                    {this.state.list.map(record => {
-                        let status = this.state.statuses[record.id];
-                        return (
-                            <div id={record.id} key={record.id}
-                                 className={'list-record' + (status ? " " + status : "")}>
-                                {record.title ? record.title + " - " : ""}{record.album} - {record.artist}
-                            </div>
-                        );
-                    })}
                 </div>
-            </div>
-        );
+            );
+        } else {
+            return null;
+        }
     }
-
 }
 
 export default SpotifyUploader;
