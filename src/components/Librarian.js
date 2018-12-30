@@ -2,6 +2,7 @@ import React, {Component} from 'react';
 import SpotifyLogin from "./SpotifyLogin";
 import SpotifyUploader from "./SpotifyUploader";
 import GoogleImporter from "./GoogleImporter";
+import Introduction from "./Introduction";
 
 class Librarian extends Component {
 
@@ -9,7 +10,8 @@ class Librarian extends Component {
         super(props);
         this.state = {
             library: [],
-            spotifyToken: ''
+            spotifyToken: '',
+            renderIntro: true
         };
         this.onLibraryImported = this.onLibraryImported.bind(this);
         this.onSpotifyLogin = this.onSpotifyLogin.bind(this);
@@ -27,8 +29,10 @@ class Librarian extends Component {
         return (
             <div className="container">
 
+                {/*<Introduction render={this.state.spotifyToken}/>*/}
+
                 <SpotifyLogin
-                    onLogin={this.onSpotifyLogin} loggedIn={this.state.spotifyToken}/>
+                    onLogin={this.onSpotifyLogin} loggedIn={this.state.spotifyToken} render={!this.state.renderIntro}/>
 
 
                 <GoogleImporter
