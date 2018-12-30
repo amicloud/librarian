@@ -9,7 +9,7 @@ class GoogleImporter extends Component {
         this.state = {
             email: '',
             password: '',
-            status: 'Waiting for login...',
+            status: '',
             done: false
         };
         this.handlePasswordChange = this.handlePasswordChange.bind(this);
@@ -82,7 +82,7 @@ class GoogleImporter extends Component {
                     <input type='submit' value='Get Library Data'/>
                 </form>
                 <p>
-                    Status: {this.state.status}
+                    {this.state.status}
                 </p>
             </div>
         );
