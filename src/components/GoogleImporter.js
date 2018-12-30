@@ -8,7 +8,9 @@ class GoogleImporter extends Component {
         super(props);
         this.state = {
             email: '',
-            password: ''
+            password: '',
+            status: 'Waiting for login...',
+            done: false
         };
         this.handlePasswordChange = this.handlePasswordChange.bind(this);
         this.handleEmailChange = this.handleEmailChange.bind(this);
@@ -30,6 +32,7 @@ class GoogleImporter extends Component {
     }
 
     getLibraryFromServer(email, password) {
+        this.setState({status: "Fetching library data..."});
         let uri = `https://librarian-api.herokuapp.com/library?username=${encodeURIComponent(email)}&password=${encodeURIComponent(password)}`;
         fetch(uri)
             .then((response) => {
@@ -38,28 +41,35 @@ class GoogleImporter extends Component {
                 }
             })
             .then((json) => {
-                if(json){
-                let decoded = Base64.decode(json["library"]);
+                if (json) {
+                    let decoded = Base64.decode(json["library"]);
+                    this.setState({status: "Library retrieved!", done: true});
                     let lib = JSON.parse(decoded);
                     this.props.callback(lib.data.items);
                 } else {
+                    this.setState({status: "Error logging in or retrieving library."});
                     alert("Error fetching library information.\n\nPlease check your credentials.\n\nIf your credentials are " +
                         "correct, Google may have blocked " +
                         "this login attempt, check your email for an alert from Google and approve the login. \n\nOr maybe " +
-                        "you need to enable 'Allow Less Secure Apps'!")
+                        "you need to enable 'Allow Less Secure Apps'!");
                 }
             });
     }
 
     render() {
-        if(!this.props.render){
+        if (!this.props.render) {
             return null;
+        }
+        if(this.state.done){
+            return(
+                <div className='row'>
+                    {this.state.status}
+                </div>
+            )
         }
         return (
             <div className="row">
-                <p>In the fields below, input the login information for the Google Account you wish to retrieve
-                    the library
-                    information for. The Google account <strong>MUST</strong> have the "Allow less secure apps" setting
+                <p>Input your Google account information below. The Google account <strong>MUST</strong> have the "Allow less secure apps" setting
                     set to "ON".
                 </p>
                 <form onSubmit={this.handleSubmit}>
@@ -72,7 +82,7 @@ class GoogleImporter extends Component {
                     <input type='submit' value='Get Library Data'/>
                 </form>
                 <p>
-                    Once the library information is retrieved it will appear below.
+                    Status: {this.state.status}
                 </p>
             </div>
         );

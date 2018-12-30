@@ -76,8 +76,8 @@ class SpotifyUploader extends Component {
 
     uploadAlbums() {
         const limiter = new Bottleneck({
-            maxConcurrent: 2,
-            minTime: 175
+            maxConcurrent: 1,
+            minTime: 130
         });
 
         const s = new Spotify();
@@ -131,8 +131,8 @@ class SpotifyUploader extends Component {
 
     uploadSongs() {
         const limiter = new Bottleneck({
-            maxConcurrent: 2,
-            minTime: 175
+            maxConcurrent: 1,
+            minTime: 130
         });
 
         const s = new Spotify();
