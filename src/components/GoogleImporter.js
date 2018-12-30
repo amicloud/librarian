@@ -69,7 +69,7 @@ class GoogleImporter extends Component {
         }
         return (
             <div className="row">
-                <p>Input your Google account information below. The Google account <strong>MUST</strong> have the "Allow less secure apps" setting
+                <p>Input your Google account information below. The Google account <strong>MUST</strong> have the <a href='https://myaccount.google.com/lesssecureapps'>"Allow less secure apps"</a> setting
                     set to "ON".
                 </p>
                 <form onSubmit={this.handleSubmit}>
