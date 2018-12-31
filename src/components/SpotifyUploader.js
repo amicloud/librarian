@@ -228,10 +228,26 @@ class SpotifyUploader extends Component {
                     <div className={'list'}>
                         {this.state.list.map(record => {
                             let status = this.state.statuses[record.id];
+                            let statusText = "";
+                            switch(status){
+                                case "ok_search":
+                                    statusText = "[Found]";
+                                    break;
+                                case "ok_save":
+                                    statusText = "[Saved to library]";
+                                    break;
+                                case "fail_search":
+                                    statusText = "[Not found]";
+                                    break;
+                                case "fail_save":
+                                    statusText = "[Save failed]";
+                                    break;
+                                default: break;
+                            }
                             return (
                                 <div id={record.id} key={record.id}
                                      className={'list-record' + (status ? " " + status : "")}>
-                                    {record.title ? record.title + " - " : ""}{record.album} - {record.artist}
+                                    {record.title ? record.title + " - " : ""}{record.album} - {record.artist}{status ? " - " : ""}{statusText}
                                 </div>
                             );
                         })}

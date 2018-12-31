@@ -91,32 +91,16 @@
     background-color: lightgreen;
 }
 
-.ok_search::after {
-    content: " [Found]"
-}
-
 .ok_save {
     background-color: forestgreen;
-}
-
-.ok_save::after {
-    content: " [Saved to library]";
 }
 
 .fail_search {
     background-color: darkorange !important;
 }
 
-.fail_search::after {
-    content: " [Not found]";
-}
-
 .fail_save {
     background-color: red !important;
-}
-
-.fail_save::after {
-    content: " [Save failed]";
 }
 
 li {

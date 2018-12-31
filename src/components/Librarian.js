@@ -29,8 +29,6 @@ class Librarian extends Component {
         return (
             <div className="container">
 
-                {/*<Introduction render={this.state.spotifyToken}/>*/}
-
                 <SpotifyLogin
                     onLogin={this.onSpotifyLogin} loggedIn={this.state.spotifyToken} render={!this.state.renderIntro}/>
 

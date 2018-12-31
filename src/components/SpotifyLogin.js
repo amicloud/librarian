@@ -16,10 +16,12 @@ class SpotifyLogin extends Component {
     }
 
     spotifyLogin() {
+        let localRedirect = "&redirect_uri=http%3A%2F%2Flocalhost%3A3001%2F";
+        let prodRedirect = "&redirect_uri=http%3A%2F%2Fwww.gpmlibrarian.com%2F";
+        let redirect = window.location.href.match("localhost") ? localRedirect : prodRedirect;
         let authorizationUrl = "https://accounts.spotify.com/authorize?" +
             "client_id=6b16fe550ec0481db8e438eea7342c04" +
-            "&redirect_uri=http%3A%2F%2Fwww.gpmlibrarian.com%2F" +
-            // "&redirect_uri=http%3A%2F%2Flocalhost%3A3000%2F" +
+            redirect +
             "&scope=user-library-modify" +
             "&response_type=token" +
             "&show_dialog=true";
