@@ -84,7 +84,8 @@ class GoogleImporter extends Component {
             <div className="row">
                 <p>Input your Google account information below. The Google account <strong>MUST</strong> have the <a
                     href='https://myaccount.google.com/lesssecureapps'>"Allow less secure apps"</a> setting
-                    set to "ON".
+                    set to "ON". Also, go <a href={'https://accounts.google.com/b/0/DisplayUnlockCaptcha'}>here</a>
+                    and click continue just in case.
                 </p>
                 <form onSubmit={this.handleSubmit}>
                     Email
