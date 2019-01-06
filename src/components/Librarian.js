@@ -42,6 +42,8 @@ class Librarian extends Component {
                 <SpotifyUploader
                     spotifyToken={this.state.spotifyToken} library={this.state.library}/>
 
+                <p className='version'>v1.0.2 | 01.06.19</p>
+
             </div>
         );
     }
