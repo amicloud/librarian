@@ -147,7 +147,7 @@ class SpotifyUploader extends Component {
                            statuses[song.id] = "ok_search";
                            let found = this.state.found + 1;
                            this.setState({statuses: statuses, found: found});
-                           let spotifyId = data.id;
+                           let spotifyId = data.tracks.items[0].id;
                            console.log(`found ${spotifyId}`);
                            limiter.schedule(() => s.addToMySavedTracks([spotifyId], null))
                                   .then(() => {

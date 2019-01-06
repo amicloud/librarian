@@ -61,10 +61,11 @@ class GoogleImporter extends Component {
                     this.props.callback(lib.data.items);
                 } else {
                     this.setState({status: "Error logging in or retrieving library."});
-                    alert("Error fetching library information.\n\nPlease check your credentials.\n\nIf your credentials are " +
+                    alert("Error fetching library information.\nPlease check your credentials.\n\nIf your credentials are " +
                         "correct, Google may have blocked " +
-                        "this login attempt, check your email for an alert from Google and approve the login. \n\nOr maybe " +
-                        "you need to enable 'Allow Less Secure Apps'!");
+                        "this login attempt, check your email for an alert from Google and approve the login. \nOr maybe " +
+                        "you need to enable 'Allow Less Secure Apps'!\nIf all that fails, you need to reset your password and use the new one. Sorry, but that's just how Google " +
+                        "wants to do things.");
                 }
             });
     }
