@@ -1,12 +1,22 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="79051a13-d44c-49bc-ab7b-41e1e481b2a8" name="Default Changelist" comment="Fixed typo">
+    <list default="true" id="79051a13-d44c-49bc-ab7b-41e1e481b2a8" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/src/components/Record.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/App.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/App.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/GoogleImporter.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/GoogleImporter.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/SpotifyUploader.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/SpotifyUploader.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/apple-touch-icon-114x114.png" beforeDir="false" afterPath="$PROJECT_DIR$/public/apple-touch-icon-114x114.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/apple-touch-icon-120x120.png" beforeDir="false" afterPath="$PROJECT_DIR$/public/apple-touch-icon-120x120.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/apple-touch-icon-144x144.png" beforeDir="false" afterPath="$PROJECT_DIR$/public/apple-touch-icon-144x144.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/apple-touch-icon-152x152.png" beforeDir="false" afterPath="$PROJECT_DIR$/public/apple-touch-icon-152x152.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/apple-touch-icon-180x180.png" beforeDir="false" afterPath="$PROJECT_DIR$/public/apple-touch-icon-180x180.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/apple-touch-icon-57x57.png" beforeDir="false" afterPath="$PROJECT_DIR$/public/apple-touch-icon-57x57.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/apple-touch-icon-72x72.png" beforeDir="false" afterPath="$PROJECT_DIR$/public/apple-touch-icon-72x72.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/apple-touch-icon-76x76.png" beforeDir="false" afterPath="$PROJECT_DIR$/public/apple-touch-icon-76x76.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/apple-touch-icon.png" beforeDir="false" afterPath="$PROJECT_DIR$/public/apple-touch-icon.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/favicon.ico" beforeDir="false" afterPath="$PROJECT_DIR$/public/favicon.ico" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/public/index.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/Header.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Header.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/Librarian.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Librarian.js" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -33,8 +43,8 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/components/GoogleImporter.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="308">
-              <caret line="66" column="180" lean-forward="true" selection-start-line="66" selection-start-column="180" selection-end-line="66" selection-end-column="180" />
+            <state relative-caret-position="975">
+              <caret line="66" column="180" selection-start-line="66" selection-start-column="180" selection-end-line="66" selection-end-column="180" />
               <folding>
                 <element signature="e#0#39#0" expanded="true" />
               </folding>
@@ -45,8 +55,8 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/components/SpotifyUploader.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="45">
-              <caret line="150" column="61" lean-forward="true" selection-start-line="150" selection-start-column="61" selection-end-line="150" selection-end-column="61" />
+            <state relative-caret-position="-1080">
+              <caret line="150" column="61" selection-start-line="150" selection-start-column="61" selection-end-line="150" selection-end-column="61" />
               <folding>
                 <element signature="e#0#39#0" expanded="true" />
               </folding>
@@ -55,10 +65,19 @@
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/components/Header.js">
+        <entry file="file://$PROJECT_DIR$/src/components/Record.js">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="90">
-              <caret line="6" column="43" selection-start-line="6" selection-start-column="43" selection-end-line="6" selection-end-column="43" />
+              <caret line="6" lean-forward="true" selection-start-line="6" selection-end-line="6" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/components/Header.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="105">
+              <caret line="7" selection-start-line="7" selection-end-line="7" />
             </state>
           </provider>
         </entry>
@@ -85,10 +104,19 @@
         </entry>
       </file>
       <file pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/public/index.html">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="315">
+              <caret line="21" column="56" lean-forward="true" selection-start-line="21" selection-start-column="56" selection-end-line="21" selection-end-column="56" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/components/Librarian.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="98">
-              <caret line="37" lean-forward="true" selection-start-line="37" selection-end-line="37" />
+            <state relative-caret-position="352">
+              <caret line="44" column="53" selection-start-line="44" selection-start-column="53" selection-end-line="44" selection-end-column="53" />
               <folding>
                 <element signature="e#0#39#0" expanded="true" />
               </folding>
@@ -111,8 +139,8 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/App.css">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="1560">
-              <caret line="104" selection-start-line="104" selection-end-line="104" />
+            <state relative-caret-position="2310">
+              <caret line="154" column="25" selection-start-line="154" selection-start-column="25" selection-end-line="154" selection-end-column="25" />
             </state>
           </provider>
         </entry>
@@ -160,18 +188,19 @@
         <option value="$PROJECT_DIR$/src/components/AlbumsUploadWorker.js" />
         <option value="$PROJECT_DIR$/node_modules/playmusic/lib/encryptLogin.js" />
         <option value="$PROJECT_DIR$/node_modules/playmusic/play.js" />
-        <option value="$PROJECT_DIR$/public/index.html" />
         <option value="$PROJECT_DIR$/src/components/Downloader.js" />
         <option value="$PROJECT_DIR$/src/components/CSVImporter.js" />
-        <option value="$PROJECT_DIR$/src/components/Header.js" />
         <option value="$PROJECT_DIR$/src/components/Introduction.js" />
-        <option value="$PROJECT_DIR$/src/components/Librarian.js" />
         <option value="$PROJECT_DIR$/src/components/SpotifyLogin.js" />
-        <option value="$PROJECT_DIR$/src/App.css" />
         <option value="$PROJECT_DIR$/src/components/GoogleImporter.js" />
         <option value="$PROJECT_DIR$/src/components/SpotifyUploader.js" />
         <option value="$PROJECT_DIR$/src/App.js" />
         <option value="$PROJECT_DIR$/package.json" />
+        <option value="$PROJECT_DIR$/src/App.css" />
+        <option value="$PROJECT_DIR$/src/components/Librarian.js" />
+        <option value="$PROJECT_DIR$/src/components/Record.js" />
+        <option value="$PROJECT_DIR$/src/components/Header.js" />
+        <option value="$PROJECT_DIR$/public/index.html" />
       </list>
     </option>
   </component>
@@ -193,12 +222,18 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
+      <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
             <path>
               <item name="librarian-react" type="b2602c69:ProjectViewProjectNode" />
               <item name="librarian-react" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="librarian-react" type="b2602c69:ProjectViewProjectNode" />
+              <item name="librarian-react" type="462c0819:PsiDirectoryNode" />
+              <item name="public" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="librarian-react" type="b2602c69:ProjectViewProjectNode" />
@@ -215,7 +250,6 @@
           <select />
         </subPane>
       </pane>
-      <pane id="Scope" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -301,7 +335,8 @@
       <workItem from="1546206282597" duration="3472000" />
       <workItem from="1546223841518" duration="767000" />
       <workItem from="1546226221975" duration="1805000" />
-      <workItem from="1546796526607" duration="1506000" />
+      <workItem from="1546796526607" duration="2193000" />
+      <workItem from="1547266710138" duration="422000" />
     </task>
     <task id="LOCAL-00001" summary="Initial commit">
       <created>1544504466352</created>
@@ -457,11 +492,25 @@
       <option name="project" value="LOCAL" />
       <updated>1546294255343</updated>
     </task>
-    <option name="localTasksCounter" value="23" />
+    <task id="LOCAL-00023" summary="Fixed broken song uploading. Added more information for failed login attempts">
+      <created>1546799930615</created>
+      <option name="number" value="00023" />
+      <option name="presentableId" value="LOCAL-00023" />
+      <option name="project" value="LOCAL" />
+      <updated>1546799930615</updated>
+    </task>
+    <task id="LOCAL-00024" summary="Added version information">
+      <created>1546800220407</created>
+      <option name="number" value="00024" />
+      <option name="presentableId" value="LOCAL-00024" />
+      <option name="project" value="LOCAL" />
+      <updated>1546800220407</updated>
+    </task>
+    <option name="localTasksCounter" value="25" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="112508000" />
+    <option name="totallyTimeSpent" value="113617000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="25" width="1366" height="743" extended-state="6" />
@@ -469,7 +518,7 @@
     <layout>
       <window_info id="Favorites" order="0" side_tool="true" />
       <window_info id="npm" order="1" side_tool="true" />
-      <window_info active="true" content_ui="combo" id="Project" order="2" visible="true" weight="0.24848485" />
+      <window_info active="true" content_ui="combo" id="Project" order="2" visible="true" weight="0.25227273" />
       <window_info id="Structure" order="3" side_tool="true" weight="0.25" />
       <window_info anchor="bottom" id="Terminal" order="0" weight="0.32843137" />
       <window_info anchor="bottom" id="Database Changes" order="1" />
@@ -478,7 +527,7 @@
       <window_info anchor="bottom" id="Docker" order="4" show_stripe_button="false" />
       <window_info anchor="bottom" id="Message" order="5" />
       <window_info anchor="bottom" id="Find" order="6" weight="0.32843137" />
-      <window_info anchor="bottom" id="Run" order="7" visible="true" weight="0.26960784" />
+      <window_info anchor="bottom" id="Run" order="7" weight="0.26960784" />
       <window_info anchor="bottom" id="Debug" order="8" weight="0.67320263" />
       <window_info anchor="bottom" id="Cvs" order="9" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="10" weight="0.4" />
@@ -539,7 +588,9 @@
     <MESSAGE value="Moved upload/search status out of css::after properties" />
     <MESSAGE value="Added link to display unblock captcha thing" />
     <MESSAGE value="Fixed typo" />
-    <option name="LAST_COMMIT_MESSAGE" value="Fixed typo" />
+    <MESSAGE value="Fixed broken song uploading. Added more information for failed login attempts" />
+    <MESSAGE value="Added version information" />
+    <option name="LAST_COMMIT_MESSAGE" value="Added version information" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -641,16 +692,6 @@
     <entry file="file://$PROJECT_DIR$/public/favicon.ico">
       <provider selected="true" editor-type-id="images" />
     </entry>
-    <entry file="file://$PROJECT_DIR$/public/index.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="180">
-          <caret line="19" lean-forward="true" selection-start-line="19" selection-end-line="19" />
-          <folding>
-            <element signature="n#style#0;n#iframe#0;n#noscript#1;n#body#0;n#html#0;n#!!top" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/components/Library.js" />
     <entry file="file://$PROJECT_DIR$/node_modules/playmusic/play.js">
       <provider selected="true" editor-type-id="text-editor">
@@ -708,34 +749,57 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/components/Header.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="90">
-          <caret line="6" column="43" selection-start-line="6" selection-start-column="43" selection-end-line="6" selection-end-column="43" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/App.css">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1560">
-          <caret line="104" selection-start-line="104" selection-end-line="104" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/components/GoogleImporter.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="308">
-          <caret line="66" column="180" lean-forward="true" selection-start-line="66" selection-start-column="180" selection-end-line="66" selection-end-column="180" />
+        <state relative-caret-position="975">
+          <caret line="66" column="180" selection-start-line="66" selection-start-column="180" selection-end-line="66" selection-end-column="180" />
           <folding>
             <element signature="e#0#39#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/package.json">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="30">
+          <caret line="2" column="19" selection-start-line="2" selection-start-column="19" selection-end-line="2" selection-end-column="19" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/App.css">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="2310">
+          <caret line="154" column="25" selection-start-line="154" selection-start-column="25" selection-end-line="154" selection-end-column="25" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/public/apple-touch-icon.png">
+      <provider selected="true" editor-type-id="images" />
+    </entry>
     <entry file="file://$PROJECT_DIR$/src/components/SpotifyUploader.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="45">
-          <caret line="150" column="61" lean-forward="true" selection-start-line="150" selection-start-column="61" selection-end-line="150" selection-end-column="61" />
+        <state relative-caret-position="-1080">
+          <caret line="150" column="61" selection-start-line="150" selection-start-column="61" selection-end-line="150" selection-end-column="61" />
+          <folding>
+            <element signature="e#0#39#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/App.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="240">
+          <caret line="16" selection-start-line="16" selection-end-line="16" />
+          <folding>
+            <element signature="e#0#39#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/components/Librarian.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="352">
+          <caret line="44" column="53" selection-start-line="44" selection-start-column="53" selection-end-line="44" selection-end-column="53" />
           <folding>
             <element signature="e#0#39#0" expanded="true" />
           </folding>
@@ -752,30 +816,24 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/App.js">
+    <entry file="file://$PROJECT_DIR$/src/components/Record.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="240">
-          <caret line="16" selection-start-line="16" selection-end-line="16" />
-          <folding>
-            <element signature="e#0#39#0" expanded="true" />
-          </folding>
+        <state relative-caret-position="90">
+          <caret line="6" lean-forward="true" selection-start-line="6" selection-end-line="6" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/package.json">
+    <entry file="file://$PROJECT_DIR$/src/components/Header.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="30">
-          <caret line="2" column="19" selection-start-line="2" selection-start-column="19" selection-end-line="2" selection-end-column="19" />
+        <state relative-caret-position="105">
+          <caret line="7" selection-start-line="7" selection-end-line="7" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/components/Librarian.js">
+    <entry file="file://$PROJECT_DIR$/public/index.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="98">
-          <caret line="37" lean-forward="true" selection-start-line="37" selection-end-line="37" />
-          <folding>
-            <element signature="e#0#39#0" expanded="true" />
-          </folding>
+        <state relative-caret-position="315">
+          <caret line="21" column="56" lean-forward="true" selection-start-line="21" selection-start-column="56" selection-end-line="21" selection-end-column="56" />
         </state>
       </provider>
     </entry>
